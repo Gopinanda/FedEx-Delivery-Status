@@ -20,13 +20,13 @@ categories = ['Source', 'Destination']
 
 
 input_data = {}
-for feature in numerical_features:
-    input_value = st.number_input(f'Enter {feature}', min_value=0, step=1)
-    input_data[feature] = int(input_value)
-
 
 for feature, options in categorical_features.items():
     input_data[feature] = st.selectbox(f'Select {feature}', options)
+    
+for feature in numerical_features:
+    input_value = st.number_input(f'Enter {feature}', min_value=0, step=1)
+    input_data[feature] = int(input_value)
 
 for feature in categories:
     input_data[feature] = st.text_input(" Enter  : {}".format(feature))
